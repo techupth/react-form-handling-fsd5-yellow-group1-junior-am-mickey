@@ -11,8 +11,8 @@ function ProductForm() {
     //   name: inputName,
     //   price: inputPrice,
     //   image: inputImageLink,
-    //   description: inputDescription,
-    // };
+    //   description: inputDescription, };
+    // alert(JSON.stringify(formData));
     alert(`
           "name": "${inputName}",
           "price": "${inputPrice}",
@@ -35,6 +35,7 @@ function ProductForm() {
               setInputName(event.target.value);
             }}
             value={inputName}
+            required
           />
         </label>
       </div>
@@ -50,6 +51,7 @@ function ProductForm() {
               setInputImageLink(event.target.value);
             }}
             value={inputImageLink}
+            required
           />
         </label>
       </div>
@@ -65,6 +67,7 @@ function ProductForm() {
               setInputPrice(event.target.value);
             }}
             value={inputPrice}
+            required
           />
         </label>
       </div>
@@ -82,6 +85,7 @@ function ProductForm() {
             value={inputDescription}
             rows={4}
             cols={30}
+            required
           />
         </label>
       </div>
