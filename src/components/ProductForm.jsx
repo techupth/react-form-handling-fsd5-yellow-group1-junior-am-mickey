@@ -1,6 +1,24 @@
+import { useState } from "react";
+
 function ProductForm() {
+  const [nameInputtext, setNameInputtext] = useState("");
+  const [imageInput, setImageInput] = useState("");
+  const [priceInput, setPriceInput] = useState("");
+  const [descriptionText, setDescriptionText] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const infoForm = {
+      name: nameInputtext,
+      price: priceInput,
+      image: imageInput,
+      description: descriptionText,
+    };
+    alert(JSON.stringify(infoForm));
+  };
+
   return (
-    <form className="post-form">
+    <form onSubmit={handleSubmit} className="post-form">
       <h1>Create Product Form</h1>
       <div className="input-container">
         <label>
@@ -10,7 +28,11 @@ function ProductForm() {
             name="name"
             type="text"
             placeholder="Enter name here"
-            onChange={() => {}}
+            onChange={(e) => {
+              setNameInputtext(e.target.value);
+            }}
+            value={nameInputtext}
+            required
           />
         </label>
       </div>
@@ -22,7 +44,11 @@ function ProductForm() {
             name="image"
             type="text"
             placeholder="Enter image url here"
-            onChange={() => {}}
+            onChange={(e) => {
+              setImageInput(e.target.value);
+            }}
+            value={imageInput}
+            required
           />
         </label>
       </div>
@@ -34,7 +60,11 @@ function ProductForm() {
             name="price"
             type="number"
             placeholder="Enter price here"
-            onChange={() => {}}
+            onChange={(e) => {
+              setPriceInput(e.target.value);
+            }}
+            value={priceInput}
+            required
           />
         </label>
       </div>
@@ -46,7 +76,11 @@ function ProductForm() {
             name="description"
             type="text"
             placeholder="Enter description here"
-            onChange={() => {}}
+            onChange={(e) => {
+              setDescriptionText(e.target.value);
+            }}
+            value={descriptionText}
+            required
             rows={4}
             cols={30}
           />
